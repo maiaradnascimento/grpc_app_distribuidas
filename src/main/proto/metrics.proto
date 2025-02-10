@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "br.edu.utfpr.metrics";
+option java_outer_classname = "metricsProto";
+option objc_class_prefix = "HLW";
+
+package metrics;
+
+service SystemMetrics {
+  rpc SendMetrics (MetricsRequest) returns (MetricsResponse);
+}
+
+message MetricsRequest {
+  double cpuUsage = 1;
+  double memoryUsage = 2;
+  string hostname = 3;
+}
+
+message MetricsResponse {
+  string message = 1;
+}
